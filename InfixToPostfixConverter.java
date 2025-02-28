@@ -66,5 +66,21 @@ public String convert(String infix) throws Exception {
         return postfix.toString();
 
 }
-  
+    private boolean isOperator(char c) {
+        return c == '+' || c == '-' || c == '*' || c == '/' || c == '%';
+    }
+
+  private int precedence(char operator) {
+        switch (operator) {
+            case '+':
+            case '-':
+                return 1;
+            case '*':
+            case '/':
+            case '%':
+                return 2;
+            default:
+                return -1;
+        }
+    }
 }
